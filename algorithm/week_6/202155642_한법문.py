@@ -127,14 +127,3 @@ def solution(dna_seq):
             answer = max_len
     
     return (answer)
-
-print(solution("TGGTTAAGCTTTCaTTCACATTGA"))
-# print(solution("TGGTTAAGCTTTCATTCACATTGACATTTA"))
-print(solution("tggttaagctttcattcacattga"))
-print(solution("CCTCACTTTTGATTCATCATT"))
-# print(solution("TTATTGCAATTGG"))
-print(solution(""))
-print(solution("ABCD"))
-# print(solution("abcd"))
-# print(solution("TTGTT"))
-print(solution("CATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATCATTTA"))
