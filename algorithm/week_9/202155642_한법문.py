@@ -12,7 +12,9 @@ def setting_table(src, dest):
 
 def solution(src, dest, pen_1, pen_2):
     table = setting_table(src, dest)
-
+    src = src.lower()
+    dest = dest.lower()
+    
     for row in range(1, len(src) + 1):
         src_c = src[row - 1]
         for col in range(1, len(dest) + 1):
