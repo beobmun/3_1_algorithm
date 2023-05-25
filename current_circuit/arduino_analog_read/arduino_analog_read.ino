@@ -32,10 +32,10 @@ void loop() {
   Serial.print(",");
   Serial.print(Vout);
   // Resistance = R3/((Vout/Vin)+(R1/(R1+R2)))-1;  // Resistance 값 계산식
-  float up = R3 * (-R2/(R1+R2) + (Vout/Vin));
-  float down = (- 1 + (R2/(R1+R2)) - (Vout/Vin));
-  // Resistance = R1/(-Vout/Vin + R1/(R2+R3))-R1;
-  Resistance = up / down;
+  // float up = R3 * (-R2/(R1+R2) + (Vout/Vin));
+  // float down = (- 1 + (R2/(R1+R2)) - (Vout/Vin));
+  Resistance = R1/(-Vout/Vin + R1/(R2+R3))-R1;
+  // Resistance = up / down;
   Serial.print(","); // Resistance 이름 출력
   Serial.println(Resistance); // Resistance 값 출력
   // (voltage2, voltage3, Vout, Resistance)
