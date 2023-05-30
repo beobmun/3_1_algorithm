@@ -100,12 +100,12 @@ void loop() {
 
   // 미세먼지 센서
   pulse = pulseIn(11, LOW, 20000);
-  ugm3 = pulse2ugm3(pulse);
+  ugm3 = pulse2ugm3(pulse);   //미세먼지농도 저장
   // Serial.print(ugm3, 4);
   // Serial.println("  g/m3");
 
   //습도센서 관련
-  float humidity = dht.readHumidity();
+  float humidity = dht.readHumidity();  //습도값 저장
   if (isnan(humidity)) {
     Serial.println("습도 인식 실패");
   }
@@ -129,7 +129,7 @@ void loop() {
     servo.write(90);
   }
 
-  //LCD
+  //LCD출력
   lcd.setCursor(0,0); //첫번째줄 미세먼지 농도
   lcd.print("dust: ");
   lcd.print(ugm3, 2);
