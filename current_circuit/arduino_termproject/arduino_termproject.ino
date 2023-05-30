@@ -44,7 +44,7 @@ void setup() {
   pinMode(5, OUTPUT);   //초음파 TRIG
   pinMode(4, OUTPUT);   //수동부저
 
-  servo.attach(2);  //서보 모터
+  servo.attach(3);  //서보 모터
   // pinMode(2, OUTPUT);   //가습기모듈
 
   dht.begin();    //습도센서 시작
@@ -56,12 +56,11 @@ void setup() {
   delay(1000);
 
   //서보모터 세팅
-  servo.write(90);
+  // servo.write(90);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
   time_current = millis();  //현재 시간 
 
   while (Serial.available()) {    
@@ -112,20 +111,25 @@ void loop() {
   // Serial.print((int)humidity);
   // Serial.println("%");
 
+  // for (int pos = 0; pos <= 180; pos++){
+  //   servo.write(pos);
+  //   delay(10);
+  // }
+  
   //서보 모터
   if ((int)humidity <= 50 && humState == 0) {  //습도 50이하 and 가습기 작동안할 때 
     humState = 1;                             //서보모터 작동으로 가습기 버튼 누르기
-    servo.write(60);
-    delay(250);
+    servo.write(50);
+    delay(300);
     servo.write(90);
   } else if ((int)humidity > 55 && humState == 1) { //습도 55 초과 and 가습기 작동 중이면
     humState = 0;                                   //서보모터로 가습기버튼눌러서 작동 멈춤
-    servo.write(60);                                // 두번 눌러야 종료
-    delay(250);
+    servo.write(50);                                // 두번 눌러야 종료
+    delay(300);
     servo.write(90);
-    delay(250);
-    servo.write(60);
-    delay(250);
+    delay(300);
+    servo.write(50);
+    delay(300);
     servo.write(90);
   }
 
